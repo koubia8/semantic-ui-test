@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sample Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The styles -->
+
+    <link href="assets/semantic_ui/css/semantic.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/default_colors.css" rel="stylesheet"> -->
+    <link href="assets/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/main_elements.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/js/morris.js/morris.css" rel="stylesheet" >
+</head>
+<body>
+         
+        <!-- navbar starts -->
+        <div class="navbar">
+            <div class="navbar-inner nav-color menu">
+                <div class="container-fluid">
+                    <a class="brand hidden-phone" href="index.php">
+                        <span id="logo" class="animated rubberBand">Simple Admin</span>
+                    </a>
+                    <div class="pull-right" >
+                        <div class="nav-buttons">                           
+                            <div class="nav-button search hidden-phone">
+                                <div class="ui form pull-righ">
+                                    <div class="field">
+                                        <div class="ui icon mini input">
+                                            <input type="text" placeholder="Search..." />
+                                            <i class="circular search icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-button">
+                                <div class="ui top right pointing dropdown mini">
+                                    <i class="large attention icon"></i>
+                                    <div class="floating ui awesome_red small circular label">13</div>
+                                    <div class="ui secondary menu">
+                                        <p class="item dropdown-header"> You have 13 new attention </p>
+                                        <div class="item">
+                                            <div class="ui small icon awesome_red message">
+                                                <i class=" inverter dashboard icon"></i>
+                                                <h5 class="header"></h5>
+                                                <p>CPU overload</p>
+                                            </div>
+                                            <div class="ui small icon awesome_red message">
+                                                <i class="small inverter user icon"></i>
+                                                <h5 class="header"></h5>
+                                                <p>1 user ticket waiting reply</p>
+                                            </div>
+
+                                            <div class="ui small icon awesome_red message">
+                                                <i class="small inverter exclamation icon"></i>
+                                                <h5 class="header"></h5>
+                                                <p>Website crashed</p>
+                                            </div>
+                                        </div>
+                                        <p class="item dropdown-link">
+                                            <a href="#">See them all</a><i class="right arrow icon"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-button">
+                                <div class="ui top right pointing dropdown mini">
+                                    <i id="mail" class="large mail icon"></i>
+                                    <div class="floating ui awesome_green small circular label">22</div>
+                                    <div class="menu ui transition" >
+                                        <p class="item dropdown-header"> You have 22 new emails </p>
+                                        <div class="item">
+                                            <i class="circular awesome_green inverted open folder color icon"></i> <a href="#">Inbox</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="circular folder awesome_red inverted color icon"></i> <a href="#">Outbox</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="circular awesome_yellow inverted archive color icon"></i> <a href="#">Archiv</a>
+                                        </div>
+                                        <p class="item dropdown-link">
+                                            <a href="#">See them all</a><i class="right arrow icon"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-button">
+                                <div class="ui top right pointing dropdown mini">
+                                    <i class="large checkmark sign icon"></i>
+                                    <div class="floating ui awesome_yellow small circular label">15</div>
+                                    <div class="menu ui transition" >
+                                        <p class="item dropdown-header"> You have 15 new tasks </p>
+                                        <div class="item">
+                                            <i class="circular awesome_green inverted resize full color icon"></i> <a href="#">All Tasks</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="circular awesome_red inverted checked checkbox color icon"></i> <a href="#">Done Tasks</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="circular awesome_yellow inverted archive color icon"></i> <a href="#">Tasks Archiv</a>
+                                        </div>
+                                        <p class="item dropdown-link">
+                                            <a href="#">See them all</a><i class="right arrow icon"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-button account hidden-phone">
+                                <div class="ui top right pointing dropdown mini">
+                                    <div class="account_image pull-left">                            
+                                        <img src="assets/img/avatar.jpg" class="circular ui image" alt="">
+                                    </div>
+                                    <div class="username pull-right">Jonh Doe</div> 
+                                    <div class="menu ui transition" >
+                                        <p class="item dropdown-header"> Account </p>
+                                        <div class="item">
+                                            <i class="awesome_green_text settings full color icon"></i>
+                                            <a href="#">Settings</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="awesome_green_text user full color icon"></i>
+                                            <a href="#">Account</a>
+                                        </div>
+                                        <div class="item">
+                                            <i class="awesome_green_text off full color icon"></i>
+                                            <a href="#">Log out</a>
+                                        </div>
+                                        <p class="item dropdown-link">
+                                            Role: admin
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- navbar ends -->
+        <div id="lunch_sidebar" >
+            <i class="reorder circular inverted teal icon lunch_sidebar"></i>
+        </div>
+        <!-- left menu starts -->
+        <div id="side" class="ui vertical sidebar menu">
+            <div class="custom_scrollbar2">
+                <div class="scrollbar">
+                    <div class="track">
+                        <div class="thumb">
+                            <div class="end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="viewport" id="side_scrollbar" >
+                    <div class="overview">
+                        <a id="home" class="item active ajax-link" href="index.php">
+                            Dashboard<i class="home icon"></i>
+                        </a>
+
+                        <div class="ui item sidebar_dropdown">
+                            UI Elements  <i class="icon left triangle"></i> <div class="ui teal label">+100</div>        
+                        </div>
+
+                        <div class="menu_dropdown hidden-elements">
+                            <div class="ui secondary vertical menu" >
+                                <div class="item">
+                                    <a class="ajax-link" href="buttons.php"> - Buttons</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="modal.php" > - Modal</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="dropdown.php" > - Dropdown</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="labels.php"> - Labels</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="blocks.php"> - Block Elements</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="grid.php"> - Grid</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="extras.php" class="item  ajax-link" >Extras<i class="star icon"></i></a>
+                        <a href="form.php" class="item  ajax-link" >Forms<i class="user layout icon"></i></a>
+                        <a href="chart.php" class="item ajax-link" class="ajax-link" ><i class="signal icon"></i> Charts</a>
+                        <a href="typography.php" class="item  ajax-link" ><i class="globe layout icon"></i> Typography</a>
+                        <a href="table.php" class="item  ajax-link" ><i class="users layout icon"></i> Tables</a>
+                        <a href="icon.php" class="item  ajax-link" ><i class="grid layout icon"></i> Icons</a>
+                        <a href="email.php" class="item  ajax-link" ><i class="mail icon"></i> Email 
+                            <div class="ui right teal corner label">
+                                <i class="warning icon"></i>
+                            </div>
+                        </a>
+                        <a class="item ajax-link" href="animations.php">
+                            <i class="magic icon"></i> Animations
+                        </a>
+
+                        <div class="ui item sidebar_dropdown">
+                            Layout <i class="icon left triangle"></i> <div class="ui teal label">2</div>        
+                        </div>
+
+                        <div class="menu_dropdown hidden-elements">
+                            <div class="ui secondary vertical menu" >
+                                <div class="item ">
+                                    <a class="settings-fluid change_wide active" data-type="fluid" href="#"> - Fluid</a>
+                                </div>
+                                <div class="item">
+                                    <a class="settings-boxed change_wide" data-type="boxed" href="#" > - Boxed</a>
+                                </div>                
+                            </div>
+                        </div>
+
+                        <div class="ui item sidebar_dropdown">
+                            Pages  <i class="icon left triangle"></i><div class="ui teal label">4</div>
+                        </div>
+                        <div class="menu_dropdown hidden-elements">
+                            <div class="ui secondary vertical menu" >
+                                <div class="item">
+                                    <a class="ajax-link" href="error.php"> - Error Page</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="login.php"> - Login Page</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="gallery.php"> - Gallery</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="feed.php"> - Activity</a>
+                                </div>
+                                <div class="item">
+                                    <a class="ajax-link" href="contacts.php"> - Contact </a><div class="ui teal label">Comming soon</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui item info">
+                            <div class="ui list">
+                                <div class="item">
+                                    <a href="#">
+                                        <i class="circular inverted teal settings icon"></i>
+                                        Server settings
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#"> 
+                                        <i class="circular inverted teal browser icon"></i>
+                                        Website settings
+                                    </a>                    
+                                </div>
+                                <div class="item">
+                                    <a href="#"> 
+                                        <i class="circular inverted teal user icon"></i>
+                                        Profile settings
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ui basic accordion">
+                                <div class="title">
+                                    <i class="icon check"></i>
+                                    Tasks completion
+                                </div>
+                                <div class="content field active">
+                                    <div class="sidebarstats"></div>
+                                </div>
+                            </div>
+                            <div class="ui basic accordion">
+                                <div class="title">
+                                    <i class="icon cart"></i>
+                                    Orders Finished
+                                </div>
+                                <div class="content field active">
+                                    <div class="sidebarstats2"></div>
+                                </div>
+                            </div>
+                            <div class="ui basic accordion">
+                                <div class="title">
+                                    <i class="dollar icon"></i>
+                                    Total Income
+                                </div>
+                                <div class="content field active">
+                                    <div class="sidebarstats3"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- left menu ends -->
+
+    <noscript>
+        <div class="alert alert-block span1">
+            <h4 class="alert-heading">Warning!</h4>
+            <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+        </div>
+    </noscript>
+
+    <!-- general container start-->
+    <div class="one column stackable ui grid" id="general_container">
+        <!-- content starts -->
+        <div id="content" class="column">
+<span class="is_home"></span>
+
+<div class="breadcrumb-panel hidden-phone">
+	<div class="ui breadcrumb">
+		<i class="right arrow icon divider"></i>
+		<a href="#" class="section">Dashboard</a>
+	</div>
+
+	 <div class="ui green massive message">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    IF You like this template it cost only $2.9
+	  </div>
+	  <p>
+	  	<a href="https://sellfy.com/p/0qlX/" id="0qlX" class="sellfy-buy-button in-new-page">Buy now</a><script type="text/javascript" src="https://sellfy.com/js/api_buttons.js"></script>
+	  </p>
+	</div>
+</div>
+
+<!-- ALERTS -->
+<div class="three column stackable ui grid new_alerts">
+	<div class="column">
+		<div class="ui raised segment green_alert ">
+			<div class="two column stackable ui grid">
+				<div class="six wide column">
+					<div class="ui icon header">
+						<i class="icon circular inverted mail circle"></i>
+					</div>		
+				</div>
+				<div class="nine wide column">
+					<div class="ui icon header pull-right">
+						<a class="ui center huge aligned header number pull-left">22</a>
+						<div class="pull-left">
+							<div class="sub header ">new emails </div>
+							<div class="sub header2">*2 important</div>
+						</div>
+					</div>		
+				</div>
+			</div>			
+
+			<div class="ui bottom attached inverted label">
+				<a href="#" class="see-all pull-right" >Sea all <i class="icon arrow right"></i></a> 
+				<span class="dynamicsparkline pull-left"></span>
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="ui raised segment yellow_alert">
+			<div class="two column stackable ui grid">
+				<div class="six wide column">
+					<div class="ui icon header left floated ">
+						<i class="icon circular inverted exclamation circle"></i>
+					</div>
+				</div>
+				<div class="nine wide column">
+					<div class="ui icon header pull-right">
+						<a class="ui center huge aligned header number pull-left">15</a> 
+						<div class="pull-left">
+							<div class="sub header">attentions</div>
+							<div class="sub header2">*2 critical</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui bottom attached inverted label">
+				<a href="#" class="see-all pull-right" >Sea all <i class="icon arrow right"></i></a> 
+				<span class="dynamicsparkline2 pull-left"></span>
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="ui raised segment blue_alert">
+			<div class="two column stackable ui grid">
+				<div class="six wide column">
+					<div class="ui icon  header left floated ">
+						<i class="circular inverted cart icon"></i>
+					</div>
+				</div>
+				<div class="nine wide column">
+					<div class="ui icon header pull-right">
+						<a class="ui center huge aligned header number pull-left">11</a>
+						<div class="pull-left">
+							<div class="sub header">orders</div>
+							<div class="sub header2">*today +2 orders</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ui bottom attached inverted label">
+				<a href="#" class="see-all pull-right" >Sea all <i class="icon arrow right"></i></a> 
+				<span class="dynamicsparkline4 pull-left"></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ALERTS -->
+
+<div class="one column stackable ui grid">
+	<div class="column">
+		<div class="box">
+			<div class="box-content home_chars">
+				<h2 class="ui header pull-left">
+					<i class="signal icon"></i> Sales stats
+				</h2>
+				<div class="ui horizontal list pull-right hidden-phone">
+					<div class="item">
+						<div class="content">
+							<div class="ui large awesome_red label">
+								<h4 class="ui header">
+									<i class="dollar icon"></i>This year: $21,323 
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="content">
+							<div class="ui large awesome_red label">
+								<h4 class="ui header">
+									<i class="dollar icon"></i>This month: $ 213
+								</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+				<div class="column ui grid">	
+					<div class="eleven wide column">		
+						<div id="graph" style="100%"></div>
+					</div>
+					<div class="five wide column ">								
+						<div id="donut-example"></div>								
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="two column stackable ui grid">
+	<div class="nine wide column">
+		<h4 class="ui inverted colored_header teal block header">
+			<i class="icon cart"></i>Top three most ordered products
+		</h4>
+		<div class="ui connected home_items items">
+			<div class="row" style="width: 100%;">
+				<div class="item">
+					<div class="image">
+						<img src="assets/img/sample2.jpg">
+						<a class="like ui corner label">
+							<i class="like icon"></i>
+						</a>
+					</div>
+					<div class="content">
+						<div class="name">iMac</div>
+						<p class="description">Lorem Ipsum is simply dummy text of the printing...</p>
+					</div>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="assets/img/sample2.jpg">
+						<a class="like ui corner label">
+							<i class="like icon"></i>
+						</a>
+					</div>
+					<div class="content">
+						<div class="name">Joypad</div>
+						<p class="description">Lorem Ipsum is simply dummy text of the printing...</p>
+					</div>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="assets/img/sample2.jpg">
+						<a class="like ui corner label">
+							<i class="like icon"></i>
+						</a>
+					</div>
+					<div class="content">
+						<div class="name">Keyboard</div>
+						<p class="description">Lorem Ipsum is simply dummy text of the printing...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="seven wide column">		
+		<div class="box">
+			<div class="box-header well">
+				<h2 class="ui header">
+					<i class="settings icon"></i>Alerts
+				</h2>
+				<div class="box-icons">
+					<a href="#" class="reload">
+						<i class="refresh popup icon" data-content="Reload" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-setting" >
+						<i class="icon popup setting" data-content="Settings" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-minimize">
+						<i class="arrow popup up icon" data-content="Minimize" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-close">
+						<i class="remove popup icon" data-content="Close" data-position="top left" data-variation="inverted"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="box-content with_loader">
+				<div class="ui sample segment segment_loader">					
+					<div class="ui dimmer">
+						<div class="ui loader"></div>
+					</div>
+
+					<div class="custom_scrollbar">
+						<div class="scrollbar">
+							<div class="track">
+								<div class="thumb">
+									<div class="end"></div>
+								</div>
+							</div>
+						</div>
+						<div class="viewport">
+							<div class="overview">
+								<div class="ui animated selection list small home_alerts">
+									<div class="item">
+										<i class="ui icon teal circular users"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new user joined</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular empty calendar"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">Montly Report Created</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="ui icon teal circular cart"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new orders</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular mail"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new mails</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ban circle teal circular icon"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">4 system errors</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular users"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new user joined</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular empty calendar"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">Montly Report Created</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="ui icon teal circular cart"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new orders</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="ui icon teal circular mail"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new mails</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ban circle teal circular icon"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">4 system errors</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="ui icon teal circular cart"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new orders</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="ui icon teal circular mail"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new mails</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ban circle teal circular icon"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">4 system errors</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular users"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">3 new user joined</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="ui icon teal circular empty calendar"></i>
+										<div class="right floated"><i class="calendar icon"></i>12.04.2014</div>
+										<div class="content">
+											<div class="header">Montly Report Created</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h4 class="ui  bottom attached tiny header">
+				<a href="#" class="see-all pull-right">See All <i class="icon arrow right"></i> </a>
+				<div class="clearfix"></div>
+			</h4>
+		</div>
+	</div>
+</div>
+
+<div class="two column stackable ui grid">
+	<div class="seven wide column">
+
+		<h4 class="ui inverted teal block top attached header">
+			<i class="chat icon"></i> Chat
+		</h4>
+		<div class="ui segment attached">
+			<div class="ui piled segment comments">
+				<div class="custom_scrollbar">
+					<div class="scrollbar">
+						<div class="track">
+							<div class="thumb">
+								<div class="end"></div>
+							</div>
+						</div>
+					</div>
+					<div class="viewport">
+						<div class="overview">
+							<div class="comment">
+								<a class="avatar">
+									<img src="assets/img/avatar.jpg">
+								</a>
+								<div class="content">
+									<a class="author">John</a>
+									<div class="metadata">
+										<div class="date"> <i class="calendar icon"></i> 2 days ago</div>
+
+									</div>
+									<div class="text">
+										I think this is a great idea and i am voting on it
+									</div>
+									<div class="actions">
+										<a class="reply">Reply</a>
+										<a class="delete">Delete</a>
+									</div>
+								</div>
+							</div>
+							<div class="comment">
+								<a class="avatar">
+									<img src="assets/img/avatar.jpg">
+								</a>
+								<div class="content">
+									<a class="author">Josh</a>
+									<div class="metadata">
+										<div class="date"><i class="calendar icon"></i> 1 days ago</div>
+										<div class="stars">
+											<i class="icon awesome_yellow_text star"></i>
+											<i class="icon awesome_yellow_text star"></i>
+											<i class="icon awesome_yellow_text star"></i>
+											<i class="icon empty star"></i>
+											<i class="icon empty star"></i>
+										</div>
+									</div>
+									<div class="text">
+										I think this is a great idea and i am voting on it
+									</div>
+									<div class="actions">
+										<a class="reply">Reply</a>
+										<a class="delete">Delete</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<form class="ui reply form">
+					<div class="field ">
+						<div class="ui action input">
+							<input type="text" placeholder="Message...">
+							<div id="add_comment" class="ui button">Send</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		
+	</div>
+
+	<div class="nine wide column">
+		<div class="box">
+			<div class="box-header well">
+				<h2 class="ui header">
+					<i class="list icon"></i>
+					<div class="content">Month Targets</div>
+				</h2>
+				<div class="box-icons">
+					<a href="#" class="reload">
+						<i class="refresh popup icon" data-content="Reload" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-setting" >
+						<i class="icon popup setting" data-content="Settings" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-minimize">
+						<i class="arrow popup up icon" data-content="Minimize" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-close">
+						<i class="remove popup icon" data-content="Close" data-position="top left" data-variation="inverted"></i>
+					</a>
+				</div>
+			</div>
+			<div class="box-content with_loader">
+				<div class="ui sample segment segment_loader">					
+					<div class="ui dimmer">
+						<div class="ui loader"></div>
+					</div>
+
+					<h4 class="ui header">
+						<span>
+							<i class="users teal icon"></i>Reached 100 users registered on the website
+						</span>
+						<div class="sub header">
+							<div class="ui striped  progress">
+								<div style="width: 50%;" class="bar">
+									<h4 class="ui header bold">50%</h4>
+								</div>
+							</div>
+						</div>
+					</h4>
+					<h4 class="ui header">
+						<span>
+							<i class="store cart teal icon"></i>Reached 100 orders in web store
+						</span>
+						<div class="sub header">
+							<div class="ui active striped progress">
+								<div style="width: 20%;" class="bar">
+									<h4 class="ui header bold">20%</h4>
+								</div>
+							</div>
+						</div>
+					</h4>	
+					<h4 class="ui header">
+						<span>
+							<i class="facebook teal icon"></i>Reached 100 shares in Facebook
+						</span>
+						<div class="sub header">
+							<div class="ui active striped progress">
+								<div style="width: 70%;" class="bar">
+									<h4 class="ui header bold">70%</h4>
+								</div>
+							</div>
+						</div>
+					</h4>	
+					<h4 class="ui header">
+						<span>
+							<i class="twitter teal icon"></i>Reached 100 tweets in Twitter
+						</span>
+						<div class="sub header">
+							<div class="ui active striped progress">
+								<div style="width: 99%;" class="bar">
+									<h4 class="ui header bold">99%</h4>
+								</div>
+							</div>
+						</div>
+					</h4>
+					<h4 class="ui header">
+						<span>
+							<i class="dollar teal icon"></i>Reached $1000 income
+						</span>
+						<div class="sub header">
+							<div class="ui active striped progress">
+								<div style="width: 99%;" class="bar">
+									<h4 class="ui header bold">99%</h4>
+								</div>
+							</div>
+						</div>
+					</h4>							
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- CHARS CONTAINER -->
+<div class="two column stackable ui grid">
+	<div class="column">
+		<div class="box">
+			<div class="box-header well">
+				<h2 class="ui header">
+					<i class="settings icon"></i>
+					<div class="content">Server usage</div>
+				</h2>
+				<div class="box-icons">
+					<a href="#" class="reload">
+						<i class="refresh popup icon" data-content="Reload" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-setting" >
+						<i class="icon popup setting" data-content="Settings" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-minimize">
+						<i class="arrow popup up icon" data-content="Minimize" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-close">
+						<i class="remove popup icon" data-content="Close" data-position="top left" data-variation="inverted"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="box-content with_loader">
+				<div class="ui sample segment">					
+					<div class="ui dimmer">
+						<div class="ui loader"></div>
+					</div>
+
+					<div class="four column ui grid">
+						<div class="column">
+							<div  class="char_container column">
+								<div class="chart" data-percent="35">35%</div>
+								<div class="clearfix char_text">CPU</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="char_container">
+								<div class="chart" data-percent="73">73%</div>
+								<br />
+								<div class="clearfix char_text">RAM</div>
+							</div>
+						</div>
+						<div class="column">
+							<div  class="char_container">
+								<div class="chart" data-percent="54">54%</div>
+								<br />
+								<div class="clearfix char_text">Space</div>
+							</div>
+						</div>
+						<div class="column">
+							<div  class="char_container">
+								<div class="chart" data-percent="75">75%</div>
+								<br />
+								<div class="clearfix char_text">HD </div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box-header well">
+				<h2 class="ui header">
+					<i class="users icon"></i>
+					<div class="content">Contacts</div>
+				</h2>
+				<div class="box-icons">
+					<a href="#" class="btn-setting" >
+						<i class="icon popup setting" data-content="Settings" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-minimize">
+						<i class="arrow popup up icon" data-content="Minimize" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-close">
+						<i class="remove popup icon" data-content="Close" data-position="top left" data-variation="inverted"></i>
+					</a>
+				</div>
+			</div>
+			<div class="box-content contact_list">
+				<div class="ui fluid icon input">
+					<input type="text" placeholder="Search ...">
+					<i class="search icon"></i>
+				</div>
+				<div class="custom_scrollbar">
+					<div class="scrollbar">
+						<div class="track">
+							<div class="thumb">
+								<div class="end"></div>
+							</div>
+						</div>
+					</div>
+					<div class="viewport">
+						<div class="overview">
+							<div class="ui animated selection list small home_alerts">
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Jonh Doe</a>
+										<div class="description">Family</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Anna</a>
+										<div class="description">Work</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Smith</a>
+										<div class="description">Family</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Mitchell</a>
+										<div class="description">Friends</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">James</a>
+										<div class="description">Work</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Paul</a>
+										<div class="description">Friends</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">John</a>
+										<div class="description">Work</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Jason</a>
+										<div class="description">Friends</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Lisa</a>
+										<div class="description">Family</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="right floated">
+										<i class="circular trash red icon"></i>
+									</div>
+									<div class="right floated tiny teal ui button">
+										<i class="mail icon"></i>Send Mail
+									</div>
+									<div class="right floated tiny blue ui button hidden-phone">
+										<i class="phone icon"></i>773-338-7786
+									</div>
+									<img class="ui avatar image" src="assets/img/contact.png">
+									<div class="content">
+										<a class="header">Adams</a>
+										<div class="description">Friends</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="box">
+			<div class="box-header well">
+				<h2 class="ui header">
+					<i class="settings icon"></i>
+					<div class="content">Tasks</div>
+				</h2>
+				<div class="box-icons">
+					<a href="#" class="btn-setting" >
+						<i class="icon popup setting" data-content="Settings" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-minimize">
+						<i class="arrow popup up icon" data-content="Minimize" data-position="top left" data-variation="inverted"></i>
+					</a>
+					<a href="#" class="btn-close">
+						<i class="remove popup icon" data-content="Close" data-position="top left" data-variation="inverted"></i>
+					</a>
+				</div>
+			</div>
+			<div class="box-content tasks_list">
+				<div class="ui fluid animated fade teal green button">					
+					<div class="visible content">Add new task</div>
+					<div class="hidden content"><i class="plus icon"></i></div>
+				</div>
+				<div class="ui divided list">
+					<div class="item">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input checked type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>					
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input checked type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox" checked>
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox" checked>
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox" checked>
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox" checked>
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon teal label">Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox" checked>
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item ">
+						<div class="ui ribbon awesome_red label">Not Done</div>
+						<div class="right floated hidden-elements actions hidden-phone">
+							<div class="ui teal labeled mini icon top right dropdown button">
+								<i class="settings icon"></i>
+								<span class="text">Actions</span>
+								<div class="menu">
+									<div class="item"><i class="edit icon"></i>Edit</div>
+									<div class="item"><i class="delete icon"></i>Remove</div>
+									<div class="item"><i class="hide icon"></i>Hide</div>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="header"<div class="inline field">
+								<div class="ui  checkbox">
+									<input type="checkbox">
+									<label>Fix some erros in design</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h4 class="ui  bottom attached tiny header">
+				<a href="#" class="see-all pull-right">See All <i class="icon arrow right"></i> </a>
+				<div class="clearfix"></div>
+			</h4>
+		</div>
+	</div>
+</div>
+<!-- CHARS CONTAINER -->
+
+	
+	
+
+		</div>
+
+</div>
+<a data-sumome-discover-grid></a>
+<!-- general container end-->
+
+<!-- Modal HTML -->
+<div class="ui modal_settings modal">
+	<i class="close icon"></i>
+	<div class="header">
+		Settings
+	</div>
+	<div class="content">
+		<div class="left">
+			<p>Here settings can be configured...</p>
+		</div>
+	</div>
+	<div class="actions">
+		<div class="ui button">Cancel</div>
+		<div class="ui button">OK</div>
+	</div>
+</div>
+<!-- Modal HTML -->
+
+
+<!-- external javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<!-- jQuery -->
+	<script src="assets/js/jquery.js"></script>
+
+	<!-- jQuery UI -->
+	<script src="assets/js/jquery-ui-1.8.21.custom.min.js"></script>
+
+	<!-- Semantic UI -->
+	<script src="assets/semantic_ui/javascript/semantic.min.js" ></script>
+	<!-- Semantic UI -->
+
+	<!-- Easypiechart -->
+	<script src="assets/js/jquery.easypiechart.min.js" /></script>
+	<!-- Easypiechart -->
+
+	<!-- Data tables js -->
+	<script src="assets/js/data_tables/js/footable.js?v=2-0-1" type="text/javascript"></script>
+	<script src="assets/js/data_tables/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+	<script src="assets/js/data_tables/js/footable.sort.js" type="text/javascript"></script>
+
+	<!-- morris chars -->
+	<script src="assets/js/morris.js/raphael.js" ></script>
+	<script src="assets/js/morris.js/morris.js"></script>
+
+	<!-- Spark lines -->
+	<script src="assets/js/jquery.sparkline.min.js"></script>
+
+	<!-- custom scrollbar -->
+	<script src="assets/js/custom-scrollbar.min.js"></script>
+
+	<script src="assets/js/main_plugin.js" ></script>
+	<script src="assets/js/main.js" ></script>
+
+	<!-- library for cookie management -->
+	<script src="assets/js/jquery.cookie.js"></script>
+
+	<!-- Gallery plugin -->
+	<script src="assets/js/least/js/least.min.js"></script>
+	<script src="assets/js/least/js/jquery.lazyload.min.js"></script>
+
+	<!-- history.js for cross-browser state change on ajax -->
+	<script src="assets/js/jquery.history.js"></script>
+	
+
+</body>
+</html>
